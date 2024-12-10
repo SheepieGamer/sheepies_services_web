@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1 class="display-4">Affordable, Custom Minecraft Servers & Discord Bots!</h1>
+        <p class="lead">High-quality development services tailored to your needs, at prices that won't break the bank.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg mt-3">Get Started</a>
+    </div>
+</section>
+
+<!-- Highlight Section -->
+<section class="highlight-section">
+    <div class="container">
+        <h2 class="text-center mb-5">Why Choose Sheepie?</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="highlight-card text-center">
+                    <div class="display-4 mb-3">🎮</div>
+                    <h3>Minecraft Expert</h3>
+                    <p>3 years of experience creating custom servers</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="highlight-card text-center">
+                    <div class="display-4 mb-3">🤖</div>
+                    <h3>Discord Pro</h3>
+                    <p>2 years of Discord bot programming expertise</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="highlight-card text-center">
+                    <div class="display-4 mb-3">💡</div>
+                    <h3>Affordable Plans</h3>
+                    <p>Customizable solutions for every budget</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="highlight-card text-center">
+                    <div class="display-4 mb-3">🕒</div>
+                    <h3>Quick Delivery</h3>
+                    <p>Fast turnaround times on all projects</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Preview -->
+<section class="services-preview py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card service-card">
+                    <div class="card-body text-center">
+                        <h3>Discord Bots</h3>
+                        <p>Custom bots starting from FREE!</p>
+                        <a href="{{ url_for('services') }}#discord-bots" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card service-card">
+                    <div class="card-body text-center">
+                        <h3>Discord Servers</h3>
+                        <p>Professional server setup from $3</p>
+                        <a href="{{ url_for('services') }}#discord-servers" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card service-card">
+                    <div class="card-body text-center">
+                        <h3>Minecraft Servers</h3>
+                        <p>Custom solutions at affordable rates</p>
+                        <a href="{{ url_for('services') }}#minecraft-servers" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">What Clients Say</h2>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="text-center px-5">
+                        <p class="lead">"Sheepie created an amazing Discord bot for our gaming community. The price was unbeatable!"</p>
+                        <p class="font-weight-bold">- Gaming Community Leader</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="text-center px-5">
+                        <p class="lead">"Our Minecraft server runs perfectly thanks to Sheepie's expertise. Highly recommended!"</p>
+                        <p class="font-weight-bold">- Server Owner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container text-center">
+        <h2>Ready to Get Started?</h2>
+        <p class="lead">Let's create something amazing together!</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Contact Me</a>
+    </div>
+</section>
+{% endblock %}

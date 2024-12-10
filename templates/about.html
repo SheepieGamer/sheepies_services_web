@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="about-hero py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-4 mb-4">Meet Sheepie</h1>
+                <p class="lead">Hi, I'm Sheepie! At 15 years old, I've taught myself how to program Python, create custom Discord bots, and develop Minecraft servers. While I'm not an expert, my years of experience ensure quality results.</p>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="{{ url_for('static', filename='images/profile-placeholder.png') }}" alt="Sheepie" class="img-fluid rounded-circle shadow" style="max-width: 300px;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="skills-timeline py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">My Journey</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">⌨️ Python Programming</h3>
+                        <p class="card-text">2 years of experience</p>
+                        <ul class="list-unstyled">
+                            <li>Discord Bot Development</li>
+                            <li>Web Development with Flask</li>
+                            <li>Automation Scripts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">💾 Minecraft Servers</h3>
+                        <p class="card-text">3 years of experience</p>
+                        <ul class="list-unstyled">
+                            <li>Server Configuration</li>
+                            <li>Plugin Development</li>
+                            <li>Performance Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">🤓 Discord Servers</h3>
+                        <p class="card-text">2 years of experience</p>
+                        <ul class="list-unstyled">
+                            <li>Server Setup & Management</li>
+                            <li>Bot Integration</li>
+                            <li>Community Building</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Client Success Stories</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <p class="card-text"><strong>"Sheepie helped us set up our gaming community Discord server. The organization and bot integration were perfect!"</strong></p>
+                        <p>- Gaming Community Leader</p>
+                        <!-- <footer class="blockquote-footer mt-2">Gaming Community Leader</footer> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <p class="card-text"><strong>"The custom Minecraft server exceeded our expectations. Great value for the price!"</strong></p>
+                        <p>- Server Owner</p>
+                        <!-- <footer class="blockquote-footer mt-2">Server Owner</footer> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section py-5">
+    <div class="container text-center">
+        <h2>Ready to Work Together?</h2>
+        <p class="lead">Let's create something amazing for your community!</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg mt-3">Get in Touch</a>
+    </div>
+</section>
+{% endblock %}

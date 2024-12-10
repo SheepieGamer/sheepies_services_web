@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="contact-hero py-5 bg-light">
+    <div class="container text-center">
+        <h1 class="display-4">Get in Touch</h1>
+        <p class="lead">Let's discuss your project!</p>
+    </div>
+</section>
+
+<section class="contact-form-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title mb-4">Contact Form</h2>
+                        <form method="POST" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="service" class="form-label">Service Interest</label>
+                                <select class="form-select" id="service" name="service" required>
+                                    <option value="">Choose a service...</option>
+                                    <option value="discord-bot">Discord Bot</option>
+                                    <option value="discord-server">Discord Server</option>
+                                    <option value="minecraft-server">Minecraft Server</option>
+                                    <option value="combined">Combined Package</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Project Details</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title mb-4">Quick Connect</h2>
+                        
+                        <div class="mb-4">
+                            <h5>Join My Discord</h5>
+                            <p>Get instant updates and connect with other clients:</p>
+                            <a href="https://discord.gg/g2rGrm8Y8U" class="btn btn-primary" target="_blank">
+                                Join Server
+                            </a>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5>Direct Message</h5>
+                            <p>Prefer to chat directly? Send me a DM on Discord:</p>
+                            <p class="lead">@sheepie0</p>
+                        </div>
+                        
+                        <div class="card bg-light mt-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Response Time</h5>
+                                <p class="card-text">I typically respond within 24 hours. For urgent matters, Discord DM is recommended.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Common Questions</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">How quickly can you start?</h5>
+                        <p class="card-text">I can usually begin work within 1-2 days of project confirmation and payment.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">What's your development process?</h5>
+                        <p class="card-text">We'll discuss requirements, agree on features and timeline, and I'll provide regular updates throughout development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

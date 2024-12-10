@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="pricing-hero py-5 bg-light">
+    <div class="container text-center">
+        <h1 class="display-4">Pricing Calculator</h1>
+        <p class="lead">Get an instant quote for your project</p>
+    </div>
+</section>
+
+<section class="pricing-calculator py-5">
+    <div class="container">
+        <div class="card shadow">
+            <div class="card-body">
+                <form id="pricing-calculator" class="needs-validation" novalidate>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="service-type" class="form-label">Service Type</label>
+                                <select class="form-select" id="service-type" required>
+                                    <option value="">Choose a service...</option>
+                                    <option value="discord-bot">Discord Bot</option>
+                                    <option value="discord-server">Discord Server</option>
+                                    <option value="minecraft-server">Minecraft Server</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="complexity" class="form-label">Complexity Level</label>
+                                <select class="form-select" id="complexity" required>
+                                    <option value="">Choose complexity...</option>
+                                    <option value="starter">Starter</option>
+                                    <option value="hobbyist">Hobbyist</option>
+                                    <option value="professional">Professional</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="hosting">
+                                    <label class="form-check-label" for="hosting">
+                                        Include Hosting
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="pricing-results p-4 bg-light rounded">
+                                <h3 class="mb-4">Estimated Price</h3>
+                                <div class="row mb-2">
+                                    <div class="col">Base Price:</div>
+                                    <div class="col text-end" id="base-price">$0</div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col">Hosting:</div>
+                                    <div class="col text-end" id="hosting-price">$0</div>
+                                </div>
+                                <hr>
+                                <div class="row fw-bold">
+                                    <div class="col">Total:</div>
+                                    <div class="col text-end" id="total-price">$0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Get Started</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pricing-faq py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">What's included in the hosting fee?</h5>
+                        <p class="card-text">Hosting includes server maintenance, updates, and 24/7 uptime monitoring. For Discord bots, it's $10/year. For Minecraft servers, it starts at $10/month.</p>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Can I upgrade my plan later?</h5>
+                        <p class="card-text">Yes! You can upgrade to a higher tier at any time. The price difference will be prorated based on your current plan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Do you offer refunds?</h5>
+                        <p class="card-text">While I don't offer refunds, I'm happy to make adjustments and fixes to ensure you're satisfied with the final product.</p>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">What payment methods do you accept?</h5>
+                        <p class="card-text">Payment methods can be discussed during the project setup. I aim to be flexible and accommodate various payment options.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="combined-discount py-5">
+    <div class="container text-center">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h2 class="card-title">💎 Save with Combined Packages!</h2>
+                <p class="card-text lead">Get up to 20% off when you bundle services together</p>
+                <a href="{{ url_for('services') }}#combined-package" class="btn btn-light btn-lg">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

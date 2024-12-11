@@ -33,10 +33,26 @@
                                     <option value="discord-bot">Discord Bot</option>
                                     <option value="discord-server">Discord Server</option>
                                     <option value="minecraft-server">Minecraft Server</option>
-                                    <option value="combined">Combined Package</option>
                                 </select>
                             </div>
-                            
+
+                            <div class="mb-3">
+                                <label for="complexity" class="form-label">Complexity Level</label>
+                                <select class="form-select" id="complexity" name="complexity" required>
+                                    <option value="">Choose complexity...</option>
+                                    <option value="starter">Starter</option>
+                                    <option value="hobbyist">Hobbyist</option>
+                                    <option value="professional">Professional</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="hosting" name="hosting" value="true">
+                                    <label class="form-check-label" for="hosting">Need Hosting?</label>
+                                </div>
+                            </div>
+
                             <div class="mb-3">
                                 <label for="message" class="form-label">Project Details</label>
                                 <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
@@ -56,7 +72,7 @@
                         <div class="mb-4">
                             <h5>Join My Discord</h5>
                             <p>Get instant updates and connect with other clients:</p>
-                            <a href="https://discord.gg/g2rGrm8Y8U" class="btn btn-primary" target="_blank">
+                            <a href="https://discord.gg/d67SWT3JyD" class="btn btn-primary" target="_blank">
                                 Join Server
                             </a>
                         </div>
@@ -77,8 +93,52 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="emailConfirmationModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: #343a40; color: #fff;">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Message Sent!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Thank you for reaching out! Please check your email for further details about your inquiry.</p>
+                        <p>We'll get back to you as soon as possible!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                try {
+                    const response = await fetch('/contact', {
+                        method: 'POST',
+                        body: new FormData(form)
+                    });
+                    
+                    if (response.ok) {
+                        const modal = new bootstrap.Modal(document.getElementById('emailConfirmationModal'));
+                        modal.show();
+                        form.reset();
+                    } else {
+                        alert('There was an error sending your message. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('There was an error sending your message. Please try again.');
+                }
+            });
+        });
+        </script>
 </section>
+
 
 <section class="faq py-5 bg-light">
     <div class="container">

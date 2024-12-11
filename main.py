@@ -135,7 +135,7 @@ def contact():
                             <h1>Thank You for Your Inquiry!</h1>
                             <p>Hello {name},</p>
                             <p>Thank you for your inquiry about <strong>{service} ({complexity})</strong>. The total price is <strong>${totalPrice}</strong>.</p>
-                            <p>To proceed, please join our Discord server <a href="https://discord.gg/g2rGrm8Y8U">here</a> and open a ticket under the "Product Inquiry" category with the product ID: <strong>{product_id}</strong>.</p>
+                            <p>To proceed, please join our Discord server <a href="https://discord.gg/d67SWT3JyD">here</a> and open a ticket under the "Product Inquiry" category with the product ID: <strong>{product_id}</strong>.</p>
                             <p>Best regards,<br>Sheepie</p>
                             <div class="footer">
                                 <p>&copy; 2024 Sheepie's Tech Services</p>

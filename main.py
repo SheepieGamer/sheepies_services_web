@@ -1,16 +1,17 @@
 import random
+import http.client
 import requests
 import smtplib
 from flask import Flask, render_template, request, redirect, url_for
 from datetime import datetime
-
+import json
 from dotenv import load_dotenv
 load_dotenv()
 
 import os
-discord_webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
+discord_webhook_url = os.getenv("DISCORD_WEBHOOK_URL")
 
-
+port = 443
 
 app = Flask(__name__)
 
@@ -37,6 +38,10 @@ def pricing():
 @app.route('/portfolio')
 def portfolio():
     return render_template('portfolio.html')
+
+@app.route('/routemanager')
+def routemanager():
+    return render_template('routemanager.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -112,8 +117,8 @@ def contact():
                 ],
                 "attachments": []
                 }
-    
-        requests.post(discord_webhook_url, json=embed) # type: ignore
+
+        #requests.post(discord_webhook_url, json=embed) # type: ignore
 
         subject = 'Product Inquiry Confirmation'
         html = f'''
@@ -145,12 +150,35 @@ def contact():
                     </html>
         '''
 
-        send_email(email, subject, html)
+        send_email(email, subject, name, service, complexity, totalPrice, product_id, discord_webhook_url, embed)
 
         return redirect(url_for('contact'))
     return render_template('contact.html')
 
-def send_email(to_email, subject, html):
+def send_email(to_email, subject, name, service, complexity, totalPrice, product_id, url, embed):
+    json_data = {
+        "email": to_email,
+        "subject": subject,
+        "name": name,
+        "service": service,
+        "complexity": complexity,
+        "totalPrice": totalPrice,
+        "product_id": product_id
+    }
+    headers = {
+        "Content-Type": "application/json",
+    }
+    # Convert JSON data to a string and then encode it to bytes
+    body = json.dumps(json_data).encode('utf-8')
+
+    conn = http.client.HTTPSConnection("sheepiestechservices.pythonanywhere.com")
+    conn.request("POST", "/email", body, headers)
+    response = conn.getresponse()
+    print(response.read().decode("utf-8"))
+    requests.post(url, json=embed)
+
+    return
+
     from_email = os.getenv('FROM_EMAIL')
     from_password = os.getenv('FROM_PASSWORD')
 
@@ -162,4 +190,5 @@ def send_email(to_email, subject, html):
         server.sendmail(from_email, to_email, msg) # type: ignore
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    context = ('fullchain.crt', 'server.key')
+    app.run(debug=False, host="0.0.0.0", port=port, ssl_context=context)
